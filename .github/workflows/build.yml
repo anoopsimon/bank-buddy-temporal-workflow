@@ -21,7 +21,10 @@ jobs:
       with:
         go-version: '1.20'
 
-    - name: Start Docker
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login -u "${{ github.actor }}" --password-stdin
+
+    - name: Start Temporal Server
       run: |
         docker run --name temporal -d temporalio/temporal-server:latest  # Start Temporal Server in a Docker container
         # Optional: Wait for the Temporal server to be fully ready
