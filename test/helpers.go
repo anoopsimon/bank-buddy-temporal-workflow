@@ -11,6 +11,8 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+var ENVIRONMENT = "qa"
+
 // QA is the namespace for testing helpers.
 var QA = struct {
 	Temporal struct {
@@ -25,7 +27,7 @@ type CustomerCreationInput struct {
 }
 
 func init() {
-	config, err := LoadConfig("qa")
+	config, err := LoadConfig(ENVIRONMENT)
 	if err != nil {
 		log.Fatalln("Unable to load configuration:", err)
 	}
