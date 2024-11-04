@@ -1,4 +1,4 @@
-# This workflow will build a golang project and run tests after starting the Temporal server
+# This workflow will build a Golang project and run tests after starting the Temporal server
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
 name: Go
@@ -21,9 +21,9 @@ jobs:
       with:
         go-version: '1.20'
 
-    - name: Start Temporal Server
+    - name: Start Docker
       run: |
-        docker-compose up -d  # Start the Temporal server in detached mode
+        docker run --name temporal -d temporalio/temporal-server:latest  # Start Temporal Server in a Docker container
         # Optional: Wait for the Temporal server to be fully ready
         sleep 30  # Adjust this duration as needed
 
@@ -34,4 +34,4 @@ jobs:
       run: go test -v ./...
 
     - name: Stop Temporal Server
-      run: docker-compose down  # Stop the Temporal server
+      run: docker stop temporal && docker rm temporal  # Stop and remove the Temporal container
