@@ -6,6 +6,7 @@ require (
 	github.com/onsi/ginkgo/v2 v2.21.0
 	github.com/onsi/gomega v1.35.1
 	go.temporal.io/sdk v1.30.0
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (

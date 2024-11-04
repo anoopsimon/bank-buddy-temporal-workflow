@@ -1,0 +1,3 @@
+temporal:
+  id: "customer-creation-workflow-test"
+  task_queue: "customer-task-queue"
