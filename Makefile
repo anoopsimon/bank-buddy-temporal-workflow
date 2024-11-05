@@ -7,7 +7,7 @@ infra.start:
 	docker-compose up --build -d 
 
 # Run tests
-workflow.test:
+test:
 	ginkgo --json-report=test-results.json test -environment=qa 
 
 # Linting command

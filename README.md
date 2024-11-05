@@ -5,8 +5,6 @@
 
 This project demonstrates a simple Temporal workflow to simulate customer creation tasks in a bank. The workflow includes multiple activities that represent common post-creation processes, such as account initialization and welcome package delivery.
 
-## Tech Stack
-
 
 ## Tech Stack
 
@@ -27,6 +25,7 @@ Before running the project, make sure you have the following installed:
 - **Go** (version 1.17 or higher): [Download Go](https://golang.org/dl/)
 - **Docker**: [Download Docker](https://www.docker.com/get-started)
 - **Docker Compose**: Typically included with Docker Desktop. Verify installation by running `docker-compose --version`.
+- **Make**: Optional: If you want to run infra and tests without using docker commands . Install from internet and run command to verify. `make --version`.
 
 ## Setting Up Temporal with Docker Compose
 
@@ -35,7 +34,9 @@ To spin up a Temporal server and UI using Docker Compose, use the following setu
 1. Start Temporal services with:
 
    ```bash
-   docker-compose up -d
+   docker-compose up --build -d
+   # Alternatively use make command
+   make infra.start
    ```
 Following services will be running in inside the container
 ```js
@@ -78,7 +79,9 @@ go install github.com/onsi/ginkgo/v2/ginkgo@latest
 To run the Ginkgo tests, use the following command from the project root:
 
 ```bash
-ginkgo -r test/
+ginkgo --json-report=test-results.json test -environment=qa
+# or if you are using make command
+make test
 ```
 
 Sample output:
@@ -102,3 +105,5 @@ Test Suite Passed
 ```
 
 This verifies that the `CustomerCreationWorkflow` executes successfully and completes all activities as expected.
+
+
