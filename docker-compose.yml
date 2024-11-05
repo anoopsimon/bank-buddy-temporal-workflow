@@ -90,6 +90,18 @@ services:
       - temporal-network
     command: ["go", "run", "./cmd/worker"]  
 
+  # Linting Service
+  # lint:
+  #   container_name: golangci-lint
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.linter
+  #   volumes:
+  #     - .:/app
+  #   networks:
+  #     - temporal-network
+  #   command: ["golangci-lint", "run"]
+
 networks:
   temporal-network:
     driver: bridge
