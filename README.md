@@ -37,6 +37,16 @@ To spin up a Temporal server and UI using Docker Compose, use the following setu
    ```bash
    docker-compose up -d
    ```
+Following services will be running in inside the container
+```js
+[+] Running 6/6
+ ✔ Container temporal-elasticsearch  Running                                                                                                                    0.0s 
+ ✔ Container temporal-postgresql     Running                                                                                                                    0.0s 
+ ✔ Container temporal                Running                                                                                                                    3.8s 
+ ✔ Container temporal-worker         Running                                                                                                                    0.4s 
+ ✔ Container temporal-admin-tools    Running                                                                                                                    1.5s 
+ ✔ Container temporal-ui             Running 
+   ```
 
 3. Access the Temporal UI by navigating to [Temporal UI](http://localhost:8080) in your web browser.
 

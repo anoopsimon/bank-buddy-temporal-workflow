@@ -75,6 +75,21 @@ services:
       - temporal-network
     ports:
       - 8080:8080
+
+  # Worker Service
+  worker:
+    container_name: temporal-worker
+    build:
+      context: .  
+      dockerfile: Dockerfile.worker  
+    depends_on:
+      - temporal
+    environment:
+      - TEMPORAL_ADDRESS=temporal:7233
+    networks:
+      - temporal-network
+    command: ["go", "run", "./cmd/worker"]  
+
 networks:
   temporal-network:
     driver: bridge
