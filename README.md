@@ -106,4 +106,10 @@ Test Suite Passed
 
 This verifies that the `CustomerCreationWorkflow` executes successfully and completes all activities as expected.
 
+### Temporal workflow screenshot
+![Temporal Workflow](doc\img\workflow_scr.png)
+
+
+### Containers
+![Temporal Workflow](doc\img\containers.png)
 
