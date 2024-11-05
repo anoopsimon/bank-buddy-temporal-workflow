@@ -8,7 +8,7 @@ infra.start:
 
 # Run tests
 workflow.test:
-	ginkgo test -environment=qa
+	ginkgo --json-report=test-results.json test -environment=qa 
 
 .PHONY: help
 
